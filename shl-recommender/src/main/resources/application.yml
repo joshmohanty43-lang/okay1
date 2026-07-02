@@ -1,0 +1,23 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: shl-recommender
+  jackson:
+    default-property-inclusion: non_null
+
+llm:
+  base-url: ${LLM_API_BASE_URL:https://api.groq.com/openai/v1}
+  api-key: ${LLM_API_KEY:}
+  model: ${LLM_MODEL:llama-3.3-70b-versatile}
+  connect-timeout-ms: ${LLM_CONNECT_TIMEOUT_MS:8000}
+  request-timeout-ms: ${LLM_REQUEST_TIMEOUT_MS:18000}
+
+catalog:
+  # classpath location of the scraped SHL Individual Test Solutions catalog (JSON array).
+  resource-path: catalog/shl_catalog.json
+
+logging:
+  level:
+    com.shllabs.recommender: INFO
